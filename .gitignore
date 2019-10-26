@@ -4,6 +4,7 @@
 *.log
 target
 thrift
+gen-java
 
 # Package Files #
 *.jar
