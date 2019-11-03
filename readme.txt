@@ -1,0 +1,1 @@
+https://github.com/eishay/jvm-serializers - nice library to compare serializers
