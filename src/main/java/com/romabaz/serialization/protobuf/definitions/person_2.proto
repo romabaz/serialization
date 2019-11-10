@@ -1,6 +1,8 @@
 syntax = "proto2";
 
-message Person {
+option java_package = "com.romabaz.serialization.protobuf.generated";
+
+message Person2 {
     required string name = 1;
     required int32 age = 2;
     repeated string interests = 3;
