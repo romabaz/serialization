@@ -22,7 +22,7 @@
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.6.1</version>
                 <configuration>
-                    <protocExecutable>${project.basedir}/protobuf/bin/protoc</protocExecutable>
+                    <protocExecutable>${project.basedir}/generators/protobuf/bin/protoc</protocExecutable>
                     <protoSourceRoot>${project.basedir}/src/main/java/com/romabaz/serialization/protobuf/definitions</protoSourceRoot>
                 </configuration>
                 <executions>
