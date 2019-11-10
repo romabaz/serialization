@@ -1,0 +1,8 @@
+@namespace("com.romabaz.serialization.avro.generated")
+protocol Person {
+    record Person {
+        string name;
+        int age;
+        array<string>  interests;
+    }
+}
