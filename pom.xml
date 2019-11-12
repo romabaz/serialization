@@ -23,8 +23,9 @@
                 <version>0.6.1</version>
                 <configuration>
                     <protocExecutable>${project.basedir}/generators/protobuf/bin/protoc</protocExecutable>
-                    <protoSourceRoot>${project.basedir}/src/main/java/com/romabaz/serialization/protobuf/definitions
-                    </protoSourceRoot>
+                    <protoSourceRoot>${project.basedir}/src/main/java/com/romabaz/serialization/protobuf/definitions</protoSourceRoot>
+                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                    <clearOutputDirectory>false</clearOutputDirectory>
                 </configuration>
                 <executions>
                     <execution>
