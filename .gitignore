@@ -4,6 +4,7 @@
 *.log
 target
 gen-java
+lecture_serialization
 
 # Package Files #
 *.jar
