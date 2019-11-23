@@ -14,7 +14,11 @@ import static com.romabaz.serialization.GlobalDefinitions.BASE_OUTPUT_DIR;
 
 public class ThriftMain {
     public static void main(String[] args) throws TException, IOException {
-        Person p1 = new Person("Roman", 37, Arrays.asList("sleeping", "eating"));
+//        Person p1 = new Person("Roman", 37, Arrays.asList("sleeping", "eating"));
+        Person p1 = new Person();
+        p1.setName("Roman");
+        p1.setAge(37);
+        p1.setInterests(Arrays.asList("sleeping", "eating"));
         TSerializer serializerBinary = new TSerializer(new TBinaryProtocol.Factory());
         TSerializer serializerCompact = new TSerializer(new TCompactProtocol.Factory());
         try (FileOutputStream fosBinary = new FileOutputStream(BASE_OUTPUT_DIR + "/person_thrift_binary.bytes");
