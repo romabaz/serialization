@@ -1,8 +1,8 @@
 @namespace("com.romabaz.serialization.avro.generated")
-protocol Person {
+protocol avrodemo {
     record Person {
         string name;
-        int age;
+        union {null, int} age = null;
         array<string>  interests;
     }
 }
