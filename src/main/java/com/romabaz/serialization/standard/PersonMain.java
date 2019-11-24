@@ -11,7 +11,7 @@ public class PersonMain {
 //        List<String> interests = new ArrayList<>();
 //        interests.add("sleeping");
 //        interests.add("eating");
-//        Person person1 = new PersonV1("Roman", 37, interests);
+//        PersonV1 person1 = new PersonV1("Roman", 37, interests);
 //
 //        // Serialization
 //        try (FileOutputStream file = new FileOutputStream(BASE_OUTPUT_DIR + "/personv1_serial.ser");
