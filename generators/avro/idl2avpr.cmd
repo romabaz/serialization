@@ -1,0 +1,1 @@
+java -jar avro-tools-1.9.1.jar idl ../../src/main/java/com/romabaz/serialization/avro/definitions/person.avdl ../../src/main/java/com/romabaz/serialization/avro/definitions/person.avpr
