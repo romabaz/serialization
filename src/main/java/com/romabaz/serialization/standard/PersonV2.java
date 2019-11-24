@@ -3,9 +3,7 @@ package com.romabaz.serialization.standard;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonV1 implements Person {
-    private final static long serialVersionUID = 1271148771245575564L;
-
+public class PersonV2 implements Person {
     private String name;
     private String surname;
     private int age;
@@ -19,7 +17,7 @@ public class PersonV1 implements Person {
         this.surname = surname;
     }
 
-    PersonV1(String name, int age, String surname, List<String> interests) {
+    PersonV2(String name, int age, String surname, List<String> interests) {
         this.name = name;
         this.age = age;
         this.surname = surname;
