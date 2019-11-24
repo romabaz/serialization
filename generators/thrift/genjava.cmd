@@ -1,0 +1,1 @@
+thrift-0.13.0.exe -gen java -out ../../src/main/java/ ../../src/main/java/com/romabaz/serialization/thrift/definitions/person.thrift 
