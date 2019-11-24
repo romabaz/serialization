@@ -27,12 +27,13 @@ public class AvroMain {
         //2. Using schema directly (no pre-generated classes)
 //        Schema schema_fromproto = Protocol.parse(new File("./src/main/java/com/romabaz/serialization/avro/definitions/person.avpr")).getType("Person");
         Schema schema = new Schema.Parser().parse(new File("./src/main/java/com/romabaz/serialization/avro/definitions/person.avsc"));
-        GenericRecord person_schema = new GenericData.Record(schema);
-        person_schema.put("name", "Roman");
-        person_schema.put("age", 37);
-        person_schema.put("interests", Arrays.asList("sleeping", "eating"));
+        GenericRecord person_data = new GenericData.Record(schema);
+        person_data.put("name", "Roman");
+        person_data.put("age", 37);
+        person_data.put("interests", Arrays.asList("sleeping", "eating"));
         try (DataFileWriter<GenericRecord> dataFileWriter = new DataFileWriter<>(new GenericDatumWriter<>(schema))) {
             dataFileWriter.create(schema, new File(BASE_OUTPUT_DIR + "/person_schema.avro"));
+            dataFileWriter.append(person_data);
         }
     }
 }
