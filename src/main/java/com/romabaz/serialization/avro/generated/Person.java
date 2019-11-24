@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Person extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 3393653564961886586L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.romabaz.serialization.avro.generated\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"age\",\"type\":\"int\"},{\"name\":\"interests\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
+  private static final long serialVersionUID = -8038176474558288224L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.romabaz.serialization.avro.generated\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"age\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"interests\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,7 +72,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   @Deprecated public java.lang.CharSequence name;
-  @Deprecated public int age;
+  @Deprecated public java.lang.Integer age;
   @Deprecated public java.util.List<java.lang.CharSequence> interests;
 
   /**
@@ -138,7 +138,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
    * Gets the value of the 'age' field.
    * @return The value of the 'age' field.
    */
-  public int getAge() {
+  public java.lang.Integer getAge() {
     return age;
   }
 
@@ -147,7 +147,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
    * Sets the value of the 'age' field.
    * @param value the value to set.
    */
-  public void setAge(int value) {
+  public void setAge(java.lang.Integer value) {
     this.age = value;
   }
 
@@ -209,7 +209,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     implements org.apache.avro.data.RecordBuilder<Person> {
 
     private java.lang.CharSequence name;
-    private int age;
+    private java.lang.Integer age;
     private java.util.List<java.lang.CharSequence> interests;
 
     /** Creates a new Builder */
@@ -301,7 +301,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * Gets the value of the 'age' field.
       * @return The value.
       */
-    public int getAge() {
+    public java.lang.Integer getAge() {
       return age;
     }
 
@@ -311,7 +311,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'age'.
       * @return This builder.
       */
-    public com.romabaz.serialization.avro.generated.Person.Builder setAge(int value) {
+    public com.romabaz.serialization.avro.generated.Person.Builder setAge(java.lang.Integer value) {
       validate(fields()[1], value);
       this.age = value;
       fieldSetFlags()[1] = true;
@@ -332,6 +332,7 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
       * @return This builder.
       */
     public com.romabaz.serialization.avro.generated.Person.Builder clearAge() {
+      age = null;
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -418,7 +419,13 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
   {
     out.writeString(this.name);
 
-    out.writeInt(this.age);
+    if (this.age == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeInt(this.age);
+    }
 
     long size0 = this.interests.size();
     out.writeArrayStart();
@@ -442,7 +449,12 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
     if (fieldOrder == null) {
       this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
 
-      this.age = in.readInt();
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.age = null;
+      } else {
+        this.age = in.readInt();
+      }
 
       long size0 = in.readArrayStart();
       java.util.List<java.lang.CharSequence> a0 = this.interests;
@@ -467,7 +479,12 @@ public class Person extends org.apache.avro.specific.SpecificRecordBase implemen
           break;
 
         case 1:
-          this.age = in.readInt();
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.age = null;
+          } else {
+            this.age = in.readInt();
+          }
           break;
 
         case 2:
